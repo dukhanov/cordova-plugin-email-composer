@@ -96,8 +96,8 @@ public class EmailComposerImpl {
     public boolean[] canSendMail (String id, Context ctx) {
         // is possible with specified app
         boolean withScheme = isAppInstalled(id, ctx);
-        // is possible in general
-        boolean isPossible = isEmailAccountConfigured(ctx);
+        // disable checking of configured accounts
+        boolean isPossible = true;
 
         return new boolean[] { isPossible, withScheme };
     }
