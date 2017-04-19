@@ -94,16 +94,7 @@ exports.open = function (options, callback, scope) {
 
     options = this.mergeWithDefaults(options || {});
 
-    var onAvailable = function (isPossible, withScheme) {
-
-        if (!isPossible)
-            return fn();
-
-        if (!withScheme) {
-            if (window.console) { console.log('Cannot open app'); }
-            options.app = mailto;
-        }
-
+    var onAvailable = function (isPossible, withScheme) {    
         if (!isAndroid && options.app != mailto) {
             me.registerCallbackForScheme(fn);
         }
